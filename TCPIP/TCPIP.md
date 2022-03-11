@@ -42,35 +42,47 @@
 <h4 id="3">连接建立超时</h4>
 &emsp;&emsp;清单13-1展示了，向子网内一个不存在的主机发送建立TCP请求的抓包记录
 
+<div align=center>
+<img src="./img/1647005143806.png" width="700">
+</div>
 
-![1647005143806.png](./img/1647005143806.png)
 &emsp;&emsp;抓包结果显示了客户端TCP为了建立连接频繁地发送SYN报文段。在首个报文段发送后仅3秒第二个报文段就被发送出去,第三个报文段则是这之后的6秒,而第四个报文段则在第三个报文段发送12秒以后被发送出去,以此类推。这一行为被称作指数回退。
 &emsp;&emsp;在linux中的/proc/sys/net/ipv4中的tcp_synack_retries可以看到此参数，一般选择5。
 
-![1647005642245.png](./img/1647005642245.png)
+<div align=center>
+<img src="./img/1647005642245.png" width="700">
+</div>
+<center>Ubuntu中的tcp_synack_retries参数</center>
+
 
 <h4 id="4">TCP选项</h4>
 
 &emsp;&emsp;在TCP头部固定20字节后的选项，最高可达40字节
-![1647006335807.png](./img/1647006335807.png)
+
+<div align=center>
+<img src="./img/1647006335807.png" width="700"/>
+</div>
+
 
 &emsp;&emsp;每一个选项的头一个字节为“种类” (kind),指明了该选项的类型。**根据[RFCl122],不能被理解的选项会被简单地忽略掉。种类值为0或1的选项仅占用一个字节。其他的选项会根据种类来确定自身的字节数Len。选项的总长度包括了种类与Len个字节。设置NOP选项的目的是允许发送者在必要的时候用多个4字节组填充某个字段。需要记住的是TCP头部的长度应该是32比特的倍数,因为TCP头部长度字段是以此为单位的。EOL指出了选项列表的结尾,说明无需对选项列表再进行处理**。在下文中,我们将详细地探究其他选项。
 
+<div align=center>
+<img src="./img/1647006623956.png" width="800"/>
+</div>
 
-![1647006623956.png](./img/1647006623956.png)
+
 <center>wireshark抓包中的选项</center>
 &emsp;&emsp;在wireshark抓包中，我们可以看到TCP Options一共有12字节。其中包含MSS,NOP,Window scale,SACK选项。NOP类型是只有Kind，占一字节，用于凑齐32位。MSS类型是有Kind(一字节)，Len(一字节)，MSS Value(两字节)。
 
-<center>
-
-![1647006969417.png](./img/1647006969417.png)
-</center>
+<div align=center>
+<img src="./img/1647006969417.png" width="500"/>
+</div>
 
 <center>TCP选项-MSS</center>
 
-<center>
 
-![1647007051303.png](./img/1647007051303.png)
-</center>
+<div align=center>
+<img src="./img/1647007051303.png" width="500" />
+</div>
 
 <center>TCP选项-NOP</center>
