@@ -36,6 +36,7 @@
 
 
 ![第一次握手序列号](./img/1647004276206.png)
+
 <center>wireshark抓包第一次握手的中随机序列号</center>
 
 <h4 id="3">连接建立超时</h4>
@@ -64,10 +65,12 @@
 
 ![1647006969417.png](./img/1647006969417.png)
 </center>
+
 <center>TCP选项-MSS</center>
 
 <center>
 
 ![1647007051303.png](./img/1647007051303.png)
 </center>
+
 <center>TCP选项-NOP</center>
