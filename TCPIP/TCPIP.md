@@ -1,31 +1,38 @@
 ### TCP链接管理
-
-* [1.TCP三次握手](#1)
-* [1.2.TCP序列号相关知识](#2)
-* [1.3.建立链接超时](#3)
-* [2.TCP选项](#4)
+* 本章包含内容
+   * [1.TCP三次握手](#1)
+   * [1.2.TCP序列号相关知识](#2)
+   * [1.3.建立链接超时情况](#3)
+   * [2.TCP选项知识](#4)
   
-**围绕TCP报文头，我们逐步分析关于TCP连接的相关知识。**
+**围绕TCP报文头，我们逐步分析有关TCP连接的相关知识。**
 
+<div align=center>
+<img src="./img/1647005747667.png" width="700" height="XXX">
+</div>
+<p align="center">IP数据报与TCP报文段</p>
 
-![1647005747667.png](./img/1647005747667.png)
-
-
-![1647005768008.png](./img/1647005768008.png)
+<div align=center>
+<img src="./img/1647005768008.png" width="700" height="XXX">
+</div>
+<p align="center">TCP头部</p>
 
 
 <h3 id="1">TCP三次握手</h3>
 
 &emsp;&emsp;通过发送下述3个报文段就能够完成一个TCP连接的建立。它们也常称作三次握手。**三次握手的目的不仅在于让通信双方了解一个连接正在建立,还在于利用数据包的选项来承载特殊的信息,交换初始序列号(Initial Sequence Number, ISN)**。
 
-
-![1646989023572.png](./img/1646989023572.png)
-
+<div align=center>
+<img src="./img/1646989023572.png" width="700" height="XXX">
+</div>
+<p align="center">TCP三次握手</p>
 
 - 存不存在四次握手？及A主机7777端口向B主机8888端口发送SYN的同时，B主机的8888端口向A主机7777端口发送SYN。
 
-
-![1646988875423.png](./img/1646988875423.png)
+<div align=center>
+<img src="./img/1646988875423.png" width="700" height="XXX">
+</div>
+<p align="center">TCP四次握手</p>
 
 
 <h3 id="2">TCP序列号</h3>
@@ -35,9 +42,11 @@
 &emsp;&emsp;TCP被双方的IP,端口构成的四元组唯一标识，即同一个连接也会出现不同的实例。所以我们要通过序列号是不是在窗口中来识别不同的实例。此外，一个对数据完整性有较高要求的应用程序也可以在应用层利用CRC或校验和保证所需数据在传输过程中没有出现任何错误。在任何情况下这都是一种很好的方法,并已普遍用于大文件的传输。
 
 
-![第一次握手序列号](./img/1647004276206.png)
+<div align=center>
+<img src="./img/1647004276206.png" width="900">
+</div>
+<p align="center">wireshark抓包第一次握手的中随机序列号</p>
 
-<center>wireshark抓包第一次握手的中随机序列号</center>
 
 <h4 id="3">连接建立超时</h4>
 &emsp;&emsp;清单13-1展示了，向子网内一个不存在的主机发送建立TCP请求的抓包记录
@@ -50,9 +59,10 @@
 &emsp;&emsp;在linux中的/proc/sys/net/ipv4中的tcp_synack_retries可以看到此参数，一般选择5。
 
 <div align=center>
-<img src="./img/1647005642245.png" width="700">
+<img src="./img/1647005642245.png" width="500">
 </div>
-<center>Ubuntu中的tcp_synack_retries参数</center>
+<p align="center">Ubuntu中的tcp_synack_retries参数</p>
+
 
 
 <h4 id="4">TCP选项</h4>
@@ -77,12 +87,12 @@
 <div align=center>
 <img src="./img/1647006969417.png" width="500"/>
 </div>
+<p align="center">TCP选项-MSS</p>
 
-<center>TCP选项-MSS</center>
 
 
 <div align=center>
 <img src="./img/1647007051303.png" width="500" />
 </div>
+<p align="center">TCP选项-NOP</p>
 
-<center>TCP选项-NOP</center>
