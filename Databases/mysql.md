@@ -40,8 +40,6 @@ mysql -u root -p 123456
 show databaes;
 ```
 
-![](image/mysql/1650265937188.png)
-
 2.退出Mysql
 
 ```
@@ -74,8 +72,6 @@ select database();
 
 7.加入\c取消当前SQL语句
 
-![](image/mysql/1650270777668.png)
-
 ### Mysql表
 
 任何一张表都有行和列：
@@ -96,7 +92,7 @@ select database();
  docker cp C:\\Users\\faker\\Downloads\\bjpowernode.sql 8d4:/
 ```
 
-![](image/mysql/1650269705850.png)
+![img](mysql/1650269705850.png)
 
 然后在mysql中输入source命令从容器导入mysql
 
@@ -104,7 +100,7 @@ select database();
 source ./bjpowernode.sql
 ```
 
-![img](image/mysql/1650269747910.png)
+![img](mysql/1650269747910.png)
 
 2.展示当前数据库的所有表
 
@@ -112,7 +108,7 @@ source ./bjpowernode.sql
 show tables;
 ```
 
- ![](image/mysql/1650269888511.png)
+![img](mysql/1650269888511.png)
 
 3.查看EMP表中的所有数据
 
@@ -121,12 +117,10 @@ select * from EMP;
 
 ```
 
-![](image/mysql/1650270022235.png)
-
 4.查看EMP表的结构
 
 ```
 desc EMP;
 ```
 
-![img](image/mysql/1650270329245.png)
+![img](mysql/1650270329245.png)
