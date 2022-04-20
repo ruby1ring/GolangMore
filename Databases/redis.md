@@ -41,17 +41,17 @@ TLL key
 
 ## Redis 数据类型
 
-![](image/redis/1650370466920.png)
+Redis是key-value的数据库。key一般是string类型，value的类型是多种多样
 
-Redis是key-value的数据库。key1一般是string类型，value的类型是多种多样。
+![](image/redis/1650421548981.png)
 
 ### String类型
 
-String类型，也就是字符串类型，是Redis中最简单的存储类型.
+String类型，也就是字符串类型，是Redis中最简单的存储类型
 
-String结构是将对象序列化为JSON字符串类型，当需要修改对象某个字段时较为不变。
+String结构是将对象序列化为JSON字符串类型，当需要修改对象某个字段时较为不变
 
-字符串类型的最大空间不能超过512m。
+字符串类型的最大空间不能超过512m
 
 ![](image/redis/1650370170008.png)
 
@@ -59,7 +59,7 @@ String结构是将对象序列化为JSON字符串类型，当需要修改对象�
 
 ### Hash类型
 
-Hash结构可以将对象中的每个字段独立存储，可以针对单个字段做CRUD.
+Hash结构可以将对象中的每个字段独立存储，可以针对单个字段做CRUD
 
 ![hash图例](image/redis/1650370466920.png "hash图例")
 
@@ -103,7 +103,7 @@ HSETNX key field value
 
 ### List类型
 
-Reids中的List类型可以看做是一个双向链表结构。既可以支持正向检索也可以支持反向检索。
+Reids中的List类型可以看做是一个双向链表结构。既可以支持正向检索也可以支持反向检索
 
 List类型特点：
 
